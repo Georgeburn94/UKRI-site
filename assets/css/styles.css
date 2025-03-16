@@ -21,17 +21,72 @@ footer {
   margin-top: auto;
 }
 
-/* Custom Font */
-@font-face {
-    font-family: 'Moderat';
-    src: url('../fonts/Moderat-Bold.ttf') format('truetype');
-    font-weight: 700;
-    font-style: normal;
+/* Strategy Page */
+.strategy-card {
+    display: flex;
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    min-height: 200px; /* Set minimum height to maintain card size */
+    align-items: center;
 }
 
-h1 {
-    font-family: 'Moderat', sans-serif;
-    font-size: 3rem;
+/* Add overlay for better text legibility */
+.strategy-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0); /* Start transparent */
+    transition: background-color 0.3s ease;
+    z-index: 1;
+}
+
+.strategy-card:hover::before {
+    background-color: rgba(0, 0, 0, 0.7); /* Dark overlay on hover */
+}
+
+.strategy-card h1 {
+    font-size: 6rem;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.strategy-card p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-left: 1rem;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    transform: translateY(20px);
+    position: relative;
+    z-index: 2; /* Make text appear above overlay */
+}
+
+.strategy-card:hover p {
+    opacity: 1;
+    max-height: 300px; /* Adjust based on your text length */
+    transform: translateY(0);
+}
+
+.strategy-card:hover h1 {
+    transform: scale(0.8); /* Optional: slightly shrink the number on hover */
+}
+
+/* Optional: add a subtle animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.strategy-card:hover p {
+    animation: fadeIn 0.4s forwards;
 }
 
 /* Video overlay styles */
@@ -80,4 +135,17 @@ h1 {
     .overlay-content p {
         font-size: 1rem;
     }
+}
+
+/* Custom Font */
+@font-face {
+    font-family: 'Moderat';
+    src: url('../fonts/Moderat-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+h1 {
+    font-family: 'Moderat', sans-serif;
+    font-size: 3rem;
 }
