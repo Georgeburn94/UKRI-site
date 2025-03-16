@@ -21,7 +21,58 @@ footer {
   margin-top: auto;
 }
 
+
+
+
+
+/* Work Page */
+
+
+
+
+
+/* Card carousel styling */
+.carousel-control-prev, 
+.carousel-control-next {
+    width: 5%;
+
+}
+
+.carousel-indicators {
+    bottom: -50px;
+}
+
+.carousel-indicators button {
+    background-color: #555;
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.card-img-top {
+    height: 300px;
+    object-fit: cover;
+}
+
+.card:hover .card-img-top {
+    opacity: 0.9;
+}
+
+
 /* Strategy Page */
+
+
+
+
+
+
 .strategy-card {
     display: flex;
     padding: 3rem;
