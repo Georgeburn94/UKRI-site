@@ -200,3 +200,24 @@ h1 {
     font-family: 'Moderat', sans-serif;
     font-size: 3rem;
 }
+
+/* Clickable cards for modals */
+.clickable-card {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Dark theme for modals */
+.modal-content.bg-dark {
+    background-color: #212529;
+}
+
+.modal-header.border-secondary,
+.modal-footer.border-secondary {
+    border-color: #495057;
+}
+
+/* Fix for white close button on dark background */
+.btn-close-white {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
