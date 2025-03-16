@@ -76,7 +76,7 @@ footer {
 }
 
 .strategy-card:hover h1 {
-    transform: scale(0.8); /* Optional: slightly shrink the number on hover */
+    transform: scale(0.6); /* Optional: slightly shrink the number on hover */
 }
 
 /* Optional: add a subtle animation */
