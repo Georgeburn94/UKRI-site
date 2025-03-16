@@ -20,3 +20,64 @@ main {
 footer {
   margin-top: auto;
 }
+
+/* Custom Font */
+@font-face {
+    font-family: 'Moderat';
+    src: url('../fonts/Moderat-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+h1 {
+    font-family: 'Moderat', sans-serif;
+    font-size: 3rem;
+}
+
+/* Video overlay styles */
+.position-relative {
+    position: relative;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    transform: translateY(-50%);
+    padding: 20px;
+    width: 50%;
+    max-width: 600px;
+}
+
+.overlay-content {
+    background-color: rgba(0, 0, 0, 0.6); /* Transparent black background */
+    padding: 30px;
+    color: white;
+    border-radius: 5px;
+}
+
+.overlay-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.overlay-content p {
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+    .video-overlay {
+        width: 80%;
+    }
+    
+    .overlay-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .overlay-content p {
+        font-size: 1rem;
+    }
+}
