@@ -20,7 +20,7 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="border-bottom: 1px solid white;">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html"><img src="assets/images/UKRI_Horizontal_RGB[W].png" alt="logo"
                     height="50">
@@ -47,26 +47,46 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 mt-3 mb-4">
-                <h1>UKRI Strategy 2022 - 2027</h1>
-                <p>The 5 year strategy sets a five-year vision for UKRI to catalyze transformational change in the UK’s
-                    R&I system,
-                    ensuring it remains world-class and delivers benefits for society, the economy, and the environment.
-                    By fostering collaboration, innovation, and sustainability, UKRI aims to make the UK a global
-                    science superpower and innovation nation.</p>
+            
+        
+
+        <!-- Animated background container -->
+        <div class="connected-bg-container">
+            <!-- Animated background -->
+            <div class="connected-bg" id="connected-bg"></div>
+            
+            <!-- Content overlay -->
+            <div class="content-overlay">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="text-white text-center p-5">
+                            <div class="col-12 mb-3">
+                                <h1 class="mb-4">UKRI Strategy 2022 - 2027</h1>
+                                <p><strong>The 5 year strategy sets a five-year vision for UKRI to catalyze transformational change in the UK’s
+                                    R&I system,
+                                    ensuring it remains world-class and delivers benefits for society, the economy, and the environment.
+                                    By fostering collaboration, innovation, and sustainability, UKRI aims to make the UK a global
+                                    science superpower and innovation nation.</strong></p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
-                <h2>Objectives</h2>
-                <p>Our strategy is structured around six objectives.
-                    These objectives will ensure the UK has the people,
-                    institutions, infrastructures and partnerships to be
-                    a global science superpower with the world’s most
-                    innovative economy, attracting globally mobile
-                    business and talent</p>
-            </div>
         </div>
+
+ 
+    <div class="text-center mt-3">
+    <h2>Objectives</h2>
+    <p>Our strategy is structured around six objectives.
+        These objectives will ensure the UK has the people,
+        institutions, infrastructures and partnerships to be
+        a global science superpower with the world’s most
+        innovative economy, attracting globally mobile
+        business and talent</p>
+    </div>
+    </div>
+        <!-- Cards -->
+
         <div class="row">
             <div class="col-12 p-4 mt-2 strategy-card"
                 style="background-image: url('assets/images/pexels-chokniti-khongchum-1197604-3938023.jpg'); background-size: cover; background-position: center; color: white;  ">
@@ -141,6 +161,95 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+
+        <!-- Script for connected background animation -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get the canvas element
+        const container = document.getElementById('connected-bg');
+        
+        // Create canvas
+        const canvas = document.createElement('canvas');
+        canvas.width = container.offsetWidth;
+        canvas.height = container.offsetHeight;
+        container.appendChild(canvas);
+        
+        const ctx = canvas.getContext('2d');
+        
+        // Set up particles
+        const particleCount = 100;
+        const particles = [];
+        
+        // Colors
+        const colors = ['#ffffff', '#f0f0f0', '#e0e0e0'];
+        
+        // Create particles
+        for (let i = 0; i < particleCount; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 3 + 1,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                vx: Math.random() * 1 - 0.5,
+                vy: Math.random() * 1 - 0.5
+            });
+        }
+        
+        // Animation function
+        function animate() {
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Update and draw particles
+            for (let i = 0; i < particles.length; i++) {
+                const p = particles[i];
+                
+                // Move particles
+                p.x += p.vx;
+                p.y += p.vy;
+                
+                // Bounce off edges
+                if (p.x < 0 || p.x > canvas.width) p.vx = -p.vx;
+                if (p.y < 0 || p.y > canvas.height) p.vy = -p.vy;
+                
+                // Draw particle
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = p.color;
+                ctx.fill();
+                
+                // Draw connections between nearby particles
+                for (let j = i + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dx = p.x - p2.x;
+                    const dy = p.y - p2.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 100) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.strokeStyle = `rgba(255, 255, 255, ${0.2 - distance/500})`;
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                    }
+                }
+            }
+            
+            requestAnimationFrame(animate);
+        }
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            canvas.width = container.offsetWidth;
+            canvas.height = container.offsetHeight;
+        });
+        
+        // Start animation
+        animate();
+    });
+    </script>
+
 </body>
 
 </html>

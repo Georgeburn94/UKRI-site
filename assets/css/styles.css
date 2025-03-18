@@ -1,3 +1,9 @@
+/* CSS Variables */
+:root {
+    --accent-color: #2E2D62;
+    --black: #000000;
+}
+
 /* Add these styles to position the footer at the bottom */
 html, body {
   height: 100%;
@@ -23,7 +29,37 @@ footer {
 
 
 
+/* Navbar styling */
 
+.nav-link {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.navbar {
+    border-bottom: 3px solid var(--accent-color);
+}
+
+/* Button Styling */
+
+.btn {
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 2rem;
+    padding: 0.5rem 1.5rem;
+    border-width: 2px;
+}
+
+.btn-outline-secondary {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
 
 /* Work Page */
 
@@ -220,4 +256,51 @@ h1 {
 /* Fix for white close button on dark background */
 .btn-close-white {
     filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+
+/* Connected background container */
+.connected-bg-container {
+    position: relative;
+    min-height: 200px;
+    width: 100%;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+/* The canvas for the animation */
+.connected-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #2E2D62;  /* Your accent color */
+    z-index: 1;
+}
+
+/* Content overlay */
+.content-overlay {
+    position: relative;
+    z-index: 2;
+    padding: 2rem 0;
+}
+
+/* Content card styling */
+.content-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+/* Optional: Add animation to content cards */
+.content-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
