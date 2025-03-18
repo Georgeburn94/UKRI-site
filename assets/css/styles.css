@@ -27,6 +27,11 @@ footer {
   margin-top: auto;
 }
 
+/* Custom icon size */
+.footer-icon {
+    font-size: 1.5rem;
+}
+
 
 
 /* Navbar styling */
@@ -304,3 +309,4 @@ h1 {
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
+
